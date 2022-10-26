@@ -38,3 +38,6 @@
 
 9
     npm install pg
+
+10
+    npm i jsonwebtoken dotenv-safe
