@@ -1,6 +1,7 @@
 
 const express = require ('express');
 const rotas = express.Router(); //biblioteca router do express
+const utilAuth = require('../Utils/utilAuth')
 
 const knex = require ('knex')({
     client: 'pg',
@@ -16,7 +17,7 @@ const knex = require ('knex')({
 module.exports = rotas;
 
 //teste: http://localhost:3000/produtos/
-rotas.get('/produtos', (requisicao, resposta) => {
+rotas.get('/produtos', utilAuth.checkToken, (requisicao, resposta) => {
     knex
         .select ('*')
         .from ('produto')
@@ -31,7 +32,7 @@ rotas.get('/produtos', (requisicao, resposta) => {
 
 
 //teste: http://localhost:3000/produtos/id-aqui
-rotas.get('/produtos/:id', (requisicao, resposta) => {
+rotas.get('/produtos/:id', utilAuth.checkToken, (requisicao, resposta) => {
     let identificador = parseInt(requisicao.params.id)
     knex
         .select('*')
@@ -53,7 +54,7 @@ rotas.get('/produtos/:id', (requisicao, resposta) => {
 
 //teste: POST pelo postman com o endpoint: http://localhost:3000/produtos/adicionarProduto
 //       com a mesma estrutura que o array possui
-rotas.post('/produtos/adicionarProduto', (requisicao, resposta) => {
+rotas.post('/produtos/adicionarProduto', utilAuth.checkToken, utilAuth.isAdmin, (requisicao, resposta) => {
     if(requisicao.body){
         knex ('produto') 
             .insert({ 
@@ -74,7 +75,7 @@ rotas.post('/produtos/adicionarProduto', (requisicao, resposta) => {
  
 
 //teste: http://localhost:3000/produtos/alteraProduto/id-aqui  
-rotas.put('/produtos/alteraProduto/:id', (requisicao, resposta) => {
+rotas.put('/produtos/alteraProduto/:id', utilAuth.checkToken, utilAuth.isAdmin, (requisicao, resposta) => {
     knex('produto')
         .where('id', requisicao.params.id)
         .update({
@@ -96,7 +97,7 @@ rotas.put('/produtos/alteraProduto/:id', (requisicao, resposta) => {
 })
 
 //teste: http://localhost:3000/produtos/deleta/id-aqui 
-rotas.delete('/produtos/deleta/:id', (requisicao, resposta) => {
+rotas.delete('/produtos/deleta/:id', utilAuth.checkToken, utilAuth.isAdmin, (requisicao, resposta) => {
     knex('produto')
         .where('id', requisicao.params.id)
         .del()

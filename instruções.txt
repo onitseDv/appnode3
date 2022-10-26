@@ -33,11 +33,4 @@
     git commit -m "commit"
     git push heroku master
 
-8
-    npm install knex --save
-
-9
-    npm install pg
-
-10
-    npm i jsonwebtoken dotenv-safe
+8 
