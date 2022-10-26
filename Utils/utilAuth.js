@@ -4,7 +4,8 @@ const knex = require('knex')({
     client: 'pg',
     debug: true,
     connection: {
-        connectionString: process.env.DATABASE_URL,
+        //connectionString: process.env.DATABASE_URL,
+        connectionString: 'postgres://hfyazzznsxtayn:d7c0d134c3c1f40fd84ce7c1b4b33c53b63e49fd2d82d3fccda87322e741da49@ec2-18-209-78-11.compute-1.amazonaws.com:5432/d7iuucfc9vrjfd',
         ssl: { rejectUnauthorized: false }
     }
 });
