@@ -2,3 +2,7 @@
 body {
   padding-bottom: 20px;
 }
+
+.ng-submitted .ng-invalid {
+  border-color: red;
+}
