@@ -35,6 +35,11 @@
 
 8 Para a senha, executar no terminal:   
     node -e "console.log (require('crypto').randomBytes(256).toString('base64'))"
+    OBS: incluir no arquivo .env os seguintes parâmetros: 
+    se for usar o process.env.JWT_KEY
+        JWT_KEY=secret 
+    se for usar o process.env.SECRET_KEY
+        SECRET_KEY=HASH GERADO NO COMANDO EXECUTADO ACIMA
 
 9
     npm install -g @angular/cli
