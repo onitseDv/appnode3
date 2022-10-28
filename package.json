@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npx nodemon server.js"
+    "start": "npx nodemon server.js",
+    "build:front": "cd App && npm run build"
   },
   "keywords": [],
   "author": "Vitor Lopes",
@@ -18,5 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^2.3.0",
     "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }

@@ -10,7 +10,8 @@ const rotasAuth = require ('./Rotas/rotasAuth');
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/app', express.static (path.join (__dirname, '/dist/app')))
+console.log(path.join(__dirname, '/App/dist/app'))
+app.use('/app', express.static(path.join(__dirname, '/App/dist/app')))
 app.use(rotasIndex);
 app.use('/seguranca', rotasAuth)
 
