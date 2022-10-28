@@ -12,8 +12,11 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
+  getToken() {
+    return localStorage.getItem("token")
+  }
+
   registrar(request: any) {
-    const observable = this.http.post(`${environment.apiPath}/seguranca/register`, request);
-    return lastValueFrom(observable);
+    return this.http.post(`${environment.apiPath}/seguranca/register`, request);
   }
 }
