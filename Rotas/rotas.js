@@ -18,7 +18,8 @@ const knex = require ('knex')({
 module.exports = rotas;
 
 //teste: http://localhost:3000/produtos/
-rotas.get('/produtos', utilAuth.checkToken, (requisicao, resposta) => {
+//rotas.get('/produtos', utilAuth.checkToken, (requisicao, resposta) => {
+rotas.get('/produtos', (requisicao, resposta) => {
     knex
         .select ('*')
         .from ('produto')
