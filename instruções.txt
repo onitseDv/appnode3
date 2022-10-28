@@ -33,4 +33,5 @@
     git commit -m "commit"
     git push heroku master
 
-8 
+8 Para a senha, executar no terminal:   
+    node -e "console.log (require('crypto').randomBytes(256).toString('base64'))"
