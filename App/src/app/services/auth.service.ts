@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  cadastrar(request: any) {
-    return this.http.post(`${environment.apiPath}/seguranca/register`, request);
+  registrar(request: any) {
+    const observable = this.http.post(`${environment.apiPath}/seguranca/register`, request);
+    return lastValueFrom(observable);
   }
 }
