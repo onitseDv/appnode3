@@ -35,3 +35,6 @@
 
 8 Para a senha, executar no terminal:   
     node -e "console.log (require('crypto').randomBytes(256).toString('base64'))"
+
+9
+    npm install -g @angular/cli
