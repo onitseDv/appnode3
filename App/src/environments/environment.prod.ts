@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiPath: 'https://heroku.com'
+  apiPath: 'https://appnode2vitorlopes.herokuapp.com'
 };
