@@ -28,8 +28,8 @@ export class FormProdutosComponent implements OnInit {
   }
 
   buscarProduto(id: number) {
-    this.produtoService.getProdutoById(id).subscribe(response => {
-      this.ngForm.form.patchValue(response)
+    this.produtoService.getProdutoById(id).subscribe((response: any) => {
+      this.ngForm.form.patchValue(response[0])
     }, err => {
       alert(err?.error?.message || "Erro ao buscar produto, consulte o log!")
       console.log(err)
@@ -45,7 +45,7 @@ export class FormProdutosComponent implements OnInit {
 
       request().subscribe(response => {
         this.loading = false;
-        alert("Produto cadastrado com sucesso!")
+        alert("Produto salvo com sucesso!")
         this.router.navigateByUrl("/produtos")
       }, err => {
         this.loading = false;
