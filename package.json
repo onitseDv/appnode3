@@ -1,15 +1,17 @@
 {
-  "name": "appnode3vitorlopes",
+  "name": "appnode3",
   "version": "3.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npx nodemon server.js",
+    "start": "node server.js",
+    "dev": "npx nodemon server.js",
     "start:front": "cd App && npm install && npm start",
-    "build:front": "cd App && npm run build"
+    "build:front": "cd App && npm run build",
+    "heroku-postbuild": "npm run build:front"
   },
   "keywords": [],
-  "author": "Vitor Lopes",
+  "author": "Vitor Lopes, Bruno Cunha, Lucas Vasconcelos",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
