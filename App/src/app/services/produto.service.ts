@@ -36,7 +36,7 @@ export class ProdutoService {
   }
 
   deletarProduto(id: number) {
-    return this.http.delete(`${environment.apiPath}/produtos/deleta${id}`, {headers: this.getHeaders()})
+    return this.http.delete(`${environment.apiPath}/produtos/deleta/${id}`, {headers: this.getHeaders()})
   }
 
   
