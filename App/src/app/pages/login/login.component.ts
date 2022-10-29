@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { text } from 'express';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -9,7 +10,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginUserData: any = {}
+  loginUserData: any = {
+    login:'',
+    senha:''
+  }
+
   constructor(
     private _auth: AuthService,
     private _router: Router
@@ -21,12 +26,15 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this._auth.loginUser(this.loginUserData)
       .subscribe(
-        res => {
+        (res: any) => {
           console.log(res)
           localStorage.setItem('token', res.token)
-          this._router.navigate(['/produto'])
+          this._router.navigate(['/produtos'])
         },
-        err => console.log(err)
+        err => {
+          alert(err?.error?.message || "Usuário ou senha inválidos!")
+          console.error(err);
+        }
       )
   }
   

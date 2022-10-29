@@ -7,9 +7,6 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  private _registerUrl = "http://localhost:4200/cadastro";
-  private _loginUrl = "http://localhost:4200/login";
-
   constructor(
       private http: HttpClient
   ) { }
@@ -19,16 +16,13 @@ export class AuthService {
       //throw new Error ('Método não implementado');
   }
 
-  registrar(request: any) {
-      return this.http.post(`${environment.apiPath}/seguranca/register`, request);
-  }
-
-  registerUser(user: any){
-      return this.http.post<any>(this._registerUrl, user)
+  registerUser(user: any) {
+      return this.http.post(`${environment.apiPath}/seguranca/register`, user);
   }
 
   loginUser(user: any){
-      return this.http.post<any>(this._loginUrl, user)
+      //return this.http.post<any>(this._loginUrl, user)
+      return this.http.post(`${environment.apiPath}/seguranca/login`, user);
   }
 
   loggedIn(){
