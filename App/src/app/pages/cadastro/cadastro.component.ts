@@ -23,7 +23,7 @@ export class CadastroComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (form.valid) {
       this.loading = true;
-      this.authService.registrar(form.value).subscribe(response => {
+      this.authService.registerUser(form.value).subscribe(response => {
         this.loading = false;
         alert('Usuário cadastrado com sucesso!');
         this.router.navigateByUrl('/login')
