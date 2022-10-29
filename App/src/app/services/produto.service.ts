@@ -22,5 +22,18 @@ export class ProdutoService {
   getProdutos() {
     return this.http.get(`${environment.apiPath}/produtos`, {headers: this.getHeaders()})
   }
+
+  cadastrarProduto(produto: any) {
+    return this.http.post(`${environment.apiPath}/produtos/adicionarProduto`, produto, {headers: this.getHeaders()})
+  }
+
+  editarProduto(id: number, produto: any) {
+    return this.http.put(`${environment.apiPath}/produtos/alteraProduto/${id}`, produto, {headers: this.getHeaders()});
+  }
+
+  getProdutoById(id: number) {
+    return this.http.get(`${environment.apiPath}/produtos/${id}`, {headers: this.getHeaders()})
+  }
+
   
 }

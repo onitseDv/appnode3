@@ -1,1 +1,23 @@
-<p>form-produtos works!</p>
+<h1 class="fw-bold mb-4 text-uppercase text-center"> 
+  {{ idProduto ? ('Editar produto ' + idProduto) : 'Cadastrar novo produto' }}
+</h1>
+
+<div class="container">
+  <form #form="ngForm" class="row" (submit)="onSubmit(form)">
+    <div class="col-md-12 mb-3">
+      <label for="descricao"> Nome do produto </label>
+      <input ngModel class="form-control" type="text" name="descricao" id="descricao" maxlength="200" required/>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="marca"> Marca </label>
+      <input ngModel class="form-control" type="text" name="marca" id="marca" maxlength="200" required/>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="valor"> Preço (mínimo R$ 1,00) </label>
+      <input ngModel class="form-control" type="number" name="valor" id="valor" maxlength="200" min="1" required/>
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary"> Salvar </button>
+    </div>
+  </form>
+</div>
