@@ -29,7 +29,7 @@ export class CadastroComponent implements OnInit {
         this.router.navigateByUrl('/login')
       }, err => {
         this.loading = false;
-        alert('Erro ao cadastrar usuário! Consulte o log')
+        alert(err?.error?.message || 'Erro ao cadastrar usuário! Consulte o log')
         console.error(err);
       })
     } else {
