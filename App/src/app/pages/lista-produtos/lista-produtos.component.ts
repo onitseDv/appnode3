@@ -27,10 +27,10 @@ export class ListaProdutosComponent implements OnInit {
     })
   }
 
-  DeletarProduto(id: number){
+  deletarProduto(id: number){
     this.produtoService.deletarProduto(id).subscribe((produtos) => {
-      console.log("Retorno:", produtos)
-      this.buscarProdutos()
+      console.log("deletar:",produtos);
+      this.buscarProdutos();
     }, err => {
       alert(err?.error?.message || "Erro ao deletar o produto! Consulte o log")
       console.error(err);
