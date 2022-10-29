@@ -16,7 +16,7 @@
         <td>{{produto.marca}}</td>
         <td>{{produto.valor}}</td>
         <td><button type="button" class="btn btn-dark actionsdiv" routerLink="/editar-produto/{{produto.id}}">Editar</button>
-        <button type="button" class="btn btn-danger actionsdiv">Deletar</button></td>
+        <button (click)="deletarProduto(produto.id)" type="button" class="btn btn-danger actionsdiv">Deletar</button></td>
     </tr>
  
       
