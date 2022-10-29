@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '/App/dist/app')))
 app.get('/*', (req, res) => {res.sendFile(path.join(`${__dirname}/App/dist/app/index.html`));});
 app.use('/api',rotasIndex);
-app.use('/seguranca', rotasAuth)
+app.use('/api/seguranca', rotasAuth)
 
 let port = process.env.PORT || 3000
 app.listen (port, () =>{
