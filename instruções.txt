@@ -98,5 +98,10 @@
     '$2a$08$TCxiVORvSPVOaomvpXda4.S5qMfay13ot3mtai2E5cIgPp769dfPC',
     'admini@abc.com.br', 'USER;ADMIN');
 
-12 OBS: para verificar o hash acima, basta executar a linha abaixo no terminal
+12 
+    OBS: para verificar o hash acima, basta executar a linha abaixo no terminal
     node -e "console.log (require('bcryptjs').hashSync('1234', 8))"
+
+13
+    Buid da app
+    npm run build:front
