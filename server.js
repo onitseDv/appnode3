@@ -10,10 +10,12 @@ const rotasAuth = require ('./Rotas/rotasAuth');
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/', express.static(path.join(__dirname, '/App/dist/app')))
-app.get('/*', (req, res) => {res.sendFile(path.join(`${__dirname}/App/dist/app/index.html`));});
 app.use('/api',rotasIndex);
 app.use('/api/seguranca', rotasAuth)
+
+
+app.use('/', express.static(path.join(__dirname, '/App/dist/app')))
+app.get('/*', (req, res) => {res.sendFile(path.join(`${__dirname}/App/dist/app/index.html`));});
 
 let port = process.env.PORT || 3000
 app.listen (port, () =>{
