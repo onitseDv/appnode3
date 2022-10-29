@@ -8,12 +8,13 @@
               <div class="mb-md-5 mt-md-4 pb-5">
   
                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                <p class="text-white-50 mb-5">Por favor, informe LOGIN e SENHA!</p>
-                <!--
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-                <button (click)="loginUser()" type="button" class="btn btn-success float-right">Login</button> 
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button> 
-                 -->        
+                <p class="text-white-50 mb-3">Por favor, informe LOGIN e SENHA!</p>
+                
+                <p class="m-0 text-white-50 mb-3" style="font-size: 14px;"> 
+                  Usuário ADMIN: <br/>
+                  Login: admin | Senha: 1234
+                </p>
+                
                  <form #form="ngForm">
                   <div class="form-outline form-white mb-4">
                     <input name="loginUsr" [(ngModel)]="loginUserData.login" type="text" id="typeLogin" class="form-control form-control-lg" />
