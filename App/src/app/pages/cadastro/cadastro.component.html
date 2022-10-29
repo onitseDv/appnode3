@@ -1,1 +1,31 @@
-<p>cadastro works!</p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5">
+        <div class="card bg-dark text-white">
+          <div class="card-body p-5">
+            <h2 class="fw-bold mb-2 text-uppercase text-center"> Cadastre-se </h2>
+
+            <form #form="ngForm" (submit)="onSubmit(form)">
+              <div class="mb-3">
+                <label for="nome"> Nome </label>
+                <input ngModel type="text" id="nome" name="nome" class="form-control" maxlength="200" required />
+              </div>
+              <div class="mb-3">
+                <label for="email"> E-mail </label>
+                <input ngModel type="email" id="email" name="email" class="form-control" maxlength="200" required />
+              </div>
+              <div class="mb-3">
+                <label for="login"> Login </label>
+                <input ngModel type="text" id="login" name="login" class="form-control" maxlength="200" required autocomplete="username" />
+              </div>
+              <div class="mb-3">
+                <label for="senha"> Senha </label>
+                <input ngModel type="password" id="senha" name="senha" class="form-control" maxlength="200" required autocomplete="new-password" />
+              </div>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" [disabled]="loading"> Cadastrar </button>  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

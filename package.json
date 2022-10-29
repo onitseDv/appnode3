@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "npx nodemon server.js",
+    "start:front": "cd App && npm install && npm start",
     "build:front": "cd App && npm run build"
   },
   "keywords": [],
